@@ -1,9 +1,13 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
+
 @export var jump_height: float = 1.0
+@export var fall_multiplier: float = 2.5
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
+
 @onready var camera_pivot: Node3D = $CameraPivot
 
 func _ready() -> void:
@@ -14,7 +18,10 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		if velocity.y >= 0:
+			velocity.y -= gravity * delta
+		else: 
+			velocity.y -= gravity * delta * fall_multiplier
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
