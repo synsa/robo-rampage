@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 @export var attack_range := 1.5
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var player
 var provoked := false
