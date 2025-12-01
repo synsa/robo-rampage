@@ -4,6 +4,8 @@
 
 [node name="HitscanWeapon" type="Node3D"]
 script = ExtResource("1_ngl63")
+fire_rate = null
+recoil = null
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
