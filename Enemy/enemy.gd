@@ -7,6 +7,7 @@ const JUMP_VELOCITY = 4.5
 
 @export var attack_range := 1.5
 @export var max_hitpoints := 100
+@export var attack_damage := 20
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -17,6 +18,7 @@ var aggro_range := 12.0
 var hitpoints: int = max_hitpoints:
 	set(value):
 		hitpoints = value
+		print(hitpoints)
 		if hitpoints <= 0:
 			queue_free()
 		provoked = true
@@ -63,3 +65,4 @@ func look_at_target(direction: Vector3) -> void:
 
 func attack() -> void:
 	print("enemy attack!")
+	player.hitpoints -= attack_damage
