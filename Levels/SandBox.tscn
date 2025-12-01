@@ -1,6 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bnjm47y20mn4d"]
 
 [ext_resource type="PackedScene" uid="uid://d3sfpyco78b75" path="res://Player/player.tscn" id="1_gilti"]
+[ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_r8rh2"]
+[ext_resource type="Material" uid="uid://dhy1ibi2mrrcs" path="res://Levels/Materials/OrangeMaterial.tres" id="3_yawbu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2b7vw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,12 +17,6 @@ sky = SubResource("Sky_gilti")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yc8as"]
-albedo_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gilti"]
-albedo_color = Color(1, 0.47058824, 0.078431375, 1)
-
 [node name="SandBox" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -34,30 +30,187 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(64, 1, 64)
-material = SubResource("StandardMaterial3D_yc8as")
+material = ExtResource("1_r8rh2")
 
 [node name="Player" parent="." instance=ExtResource("1_gilti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Platform" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5.9)
-use_collision = true
-material = SubResource("StandardMaterial3D_gilti")
+[node name="LevelObjects" type="Node3D" parent="."]
 
-[node name="UnreachablePlatform" type="CSGBox3D" parent="."]
+[node name="UnreachablePlatform" type="CSGBox3D" parent="LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.75, -5.9)
 use_collision = true
 size = Vector3(1, 1.5, 1)
-material = SubResource("StandardMaterial3D_gilti")
+material = ExtResource("3_yawbu")
 
-[node name="Platform2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6.9)
+[node name="Platform" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4, 0.5, -4.9)
+use_collision = true
+material = ExtResource("3_yawbu")
+
+[node name="Platform9" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6, 0.5, -7.9)
+use_collision = true
+material = ExtResource("3_yawbu")
+
+[node name="Platform10" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6, 0.99999976, -7.9)
 use_collision = true
 size = Vector3(1, 2, 1)
-material = SubResource("StandardMaterial3D_gilti")
+material = ExtResource("3_yawbu")
 
-[node name="Platform3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, -6.4)
+[node name="Platform11" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6, 1.5, -7.9)
+use_collision = true
+size = Vector3(1, 3, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform12" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6, 2, -7.9)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform13" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6, 0.5, 8.1)
+use_collision = true
+material = ExtResource("3_yawbu")
+
+[node name="Platform14" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6, 0.99999976, 8.1)
+use_collision = true
+size = Vector3(1, 2, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform15" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6, 1.5, 8.1)
+use_collision = true
+size = Vector3(1, 3, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform16" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6, 2, 8.1)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform17" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.45, 0.5, 20.35)
+use_collision = true
+material = ExtResource("3_yawbu")
+
+[node name="Platform18" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.45, 0.99999994, 19.35)
+use_collision = true
+size = Vector3(1, 2, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform19" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.45, 1.5, 17.35)
+use_collision = true
+size = Vector3(1, 3, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform20" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.45, 2, 15.35)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform5" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4, 4.5, 10.1)
+use_collision = true
+size = Vector3(2, 0.5, 4)
+material = ExtResource("3_yawbu")
+
+[node name="Platform7" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.6, 5.5, 10.1)
+use_collision = true
+size = Vector3(2, 0.5, 4)
+material = ExtResource("3_yawbu")
+
+[node name="Platform8" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6, 5.5, -9.9)
+use_collision = true
+size = Vector3(2, 0.5, 4)
+material = ExtResource("3_yawbu")
+
+[node name="Platform6" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4, 4.5, -10.310284)
+use_collision = true
+size = Vector3(2, 0.5, 4)
+material = ExtResource("3_yawbu")
+
+[node name="Platform2" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4, 1, -5.9)
+use_collision = true
+size = Vector3(1, 2, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform4" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4, 2, -6.9)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = ExtResource("3_yawbu")
+
+[node name="Platform3" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4, 1.5, -5.4)
 use_collision = true
 size = Vector3(1, 3, 2)
-material = SubResource("StandardMaterial3D_gilti")
+material = ExtResource("3_yawbu")
+
+[node name="Building" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.978355, 2.5, -21)
+use_collision = true
+size = Vector3(10, 5, 15)
+material = ExtResource("1_r8rh2")
+
+[node name="LargeFlatArea" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49999905, 19)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = ExtResource("1_r8rh2")
+
+[node name="Building2" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.978355, 2.5, 0)
+use_collision = true
+size = Vector3(10, 5, 15)
+material = ExtResource("1_r8rh2")
+
+[node name="Building3" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.978355, 2.5, 20)
+use_collision = true
+size = Vector3(10, 5, 15)
+material = ExtResource("1_r8rh2")
+
+[node name="Building4" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.021645, 2.5, -20)
+use_collision = true
+size = Vector3(10, 5, 15)
+material = ExtResource("1_r8rh2")
+
+[node name="Building5" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.021645, 2.5, 0)
+use_collision = true
+size = Vector3(10, 5, 15)
+material = ExtResource("1_r8rh2")
+
+[node name="Building6" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.021645, 2.5, 21)
+use_collision = true
+size = Vector3(10, 5, 15)
+material = ExtResource("1_r8rh2")
+
+[node name="Slope" type="CSGPolygon3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15, 0, -12.5)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 0)
+depth = 5.0
+material = ExtResource("3_yawbu")
+
+[node name="Slope2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9, 0, -15.5)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 3, 1, 3, 0)
+depth = 3.0
+material = ExtResource("3_yawbu")
