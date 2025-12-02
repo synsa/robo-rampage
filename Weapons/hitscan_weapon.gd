@@ -11,7 +11,6 @@ extends Node3D
 @onready var weapon_position: Vector3 = weapon_mesh.position
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("fire"):
 		if cooldown_timer.is_stopped():
@@ -26,12 +25,13 @@ func shoot() -> void:
 	printt("Weapon Fired!", collider)
 	weapon_mesh.position.z += recoil
 	
-	# Only process if we hit something
+	# Check if we hit anything at all
 	if collider != null:
+		# Damage enemies
 		if collider is Enemy:
 			collider.hitpoints -= weapon_damage
-		else:
-			# Hit something that's not an enemy - spawn sparks
-			var spark = sparks.instantiate()
-			add_child(spark)
-			spark.global_position = ray_cast_3d.get_collision_point()
+		
+		# Spawn sparks for everything we hit (including enemies)
+		var spark = sparks.instantiate()
+		add_child(spark)
+		spark.global_position = ray_cast_3d.get_collision_point()
