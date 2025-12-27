@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3sfpyco78b75"]
+[gd_scene load_steps=18 format=3 uid="uid://d3sfpyco78b75"]
 
 [ext_resource type="Script" uid="uid://dsb4ttwigonqc" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://w5k2d0w7xrr6" path="res://Player/smooth_camera.gd" id="2_4ntmi"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c10cx8pprukmh" path="res://Player/damage.png" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://i3tlxeadijjw" path="res://Player/ammo_handler.gd" id="6_00tjw"]
 [ext_resource type="PackedScene" uid="uid://bqyal251hkvdq" path="res://Player/game_over_menu.tscn" id="6_fhl08"]
+[ext_resource type="Texture2D" uid="uid://l1rq417l83av" path="res://Player/Ammo.png" id="9_apopc"]
+[ext_resource type="FontFile" uid="uid://teem4bcx1myv" path="res://Assets/Fonts/Staatliches/Staatliches-Regular.ttf" id="9_x3vf3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
@@ -74,6 +76,10 @@ _data = {
 &"RESET": SubResource("Animation_fhl08"),
 &"TakeDamage": SubResource("Animation_k53q1")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_apopc"]
+font = ExtResource("9_x3vf3")
+font_size = 64
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_l8h54")
@@ -163,6 +169,37 @@ libraries = {
 &"": SubResource("AnimationLibrary_fhl08")
 }
 autoplay = "RESET"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="AmmoLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "999"
+label_settings = SubResource("LabelSettings_apopc")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("9_apopc")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="GameOverMenu" parent="." instance=ExtResource("6_fhl08")]
 visible = false
