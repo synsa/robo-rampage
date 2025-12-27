@@ -8,6 +8,9 @@ extends Node3D
 @export var sparks: PackedScene
 @export var automatic: bool
 
+@export var ammo_handler: AmmoHandler
+@export var ammo_type: AmmoHandler.ammo_type
+
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var weapon_position: Vector3 = weapon_mesh.position
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
@@ -25,19 +28,21 @@ func _process(delta: float) -> void:
 	weapon_mesh.position = weapon_mesh.position.lerp(weapon_position, delta * 10.0)
 			
 func shoot() -> void:
-	cooldown_timer.start(1.0 / fire_rate)
-	var collider = ray_cast_3d.get_collider()
-	muzzle_flash.restart()
-	printt("Weapon Fired!", collider)
-	weapon_mesh.position.z += recoil
-	
-	# Check if we hit anything at all
-	if collider != null:
-		# Damage enemies
-		if collider is Enemy:
-			collider.hitpoints -= weapon_damage
+	if ammo_handler.has_ammo(ammo_type):
+		ammo_handler.use_ammo(ammo_type)
+		cooldown_timer.start(1.0 / fire_rate)
+		var collider = ray_cast_3d.get_collider()
+		muzzle_flash.restart()
+		printt("Weapon Fired!", collider)
+		weapon_mesh.position.z += recoil
 		
-		# Spawn sparks for everything we hit (including enemies)
-		var spark = sparks.instantiate()
-		add_child(spark)
-		spark.global_position = ray_cast_3d.get_collision_point()
+		# Check if we hit anything at all
+		if collider != null:
+			# Damage enemies
+			if collider is Enemy:
+				collider.hitpoints -= weapon_damage
+			
+			# Spawn sparks for everything we hit (including enemies)
+			var spark = sparks.instantiate()
+			add_child(spark)
+			spark.global_position = ray_cast_3d.get_collision_point()
