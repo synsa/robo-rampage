@@ -2,6 +2,7 @@ extends Node
 class_name AmmoHandler
 
 @export var ammo_label: Label
+
 enum ammo_type {
 	BULLET,
 	SMALL_BULLET
@@ -18,6 +19,7 @@ func has_ammo(type: ammo_type) -> bool:
 func use_ammo(type: ammo_type) -> void:
 	if has_ammo(type):
 		ammo_storage[type] -= 1
+		print(ammo_storage[type])
 		update_ammo_label(type)
 
 func update_ammo_label(type: ammo_type) -> void:
