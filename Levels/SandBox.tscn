@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnjm47y20mn4d"]
+[gd_scene load_steps=10 format=3 uid="uid://bnjm47y20mn4d"]
 
 [ext_resource type="PackedScene" uid="uid://d3sfpyco78b75" path="res://Player/player.tscn" id="1_gilti"]
 [ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_r8rh2"]
 [ext_resource type="Material" uid="uid://dhy1ibi2mrrcs" path="res://Levels/Materials/OrangeMaterial.tres" id="3_yawbu"]
+[ext_resource type="PackedScene" uid="uid://bp63ee8h1n6lw" path="res://Pickups/pickup.tscn" id="4_bpqh8"]
 [ext_resource type="PackedScene" uid="uid://owwbenpgxf07" path="res://Enemy/enemy.tscn" id="4_yawbu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2b7vw"]
@@ -322,3 +323,6 @@ material = ExtResource("3_yawbu")
 
 [node name="Enemy" parent="." instance=ExtResource("4_yawbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3.1666667, -26)
+
+[node name="Ammo" parent="." instance=ExtResource("4_bpqh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
