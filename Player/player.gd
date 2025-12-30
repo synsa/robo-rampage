@@ -6,7 +6,14 @@ const SPEED = 5.0
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 2.5
 @export var max_hitpoints := 100
+@export var aim_multiplier := 0.7
+
 @onready var ammo_handler: AmmoHandler = %AmmoHandler
+@onready var smooth_camera: Camera3D = %SmoothCamera
+@onready var weapon_camera: Camera3D = %WeaponCamera
+
+@onready var smooth_camera_fov := smooth_camera.fov
+@onready var weapon_camera_fov := weapon_camera.fov
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
@@ -25,9 +32,16 @@ var hitpoints: int = max_hitpoints:
 @onready var damage_animation_player: AnimationPlayer = $DamageTexture/DamageAnimationPlayer
 @onready var game_over_menu: Control = $GameOverMenu
 
-
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("aim"):
+		smooth_camera.fov = smooth_camera_fov * aim_multiplier
+		weapon_camera.fov = weapon_camera_fov * aim_multiplier
+	else:
+		smooth_camera.fov = smooth_camera_fov
+		weapon_camera.fov = weapon_camera_fov
 
 func _physics_process(delta: float) -> void:
 	handle_camera_rotation()
@@ -59,6 +73,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			mouse_motion = -event.relative * 0.001
+			if Input.is_action_pressed("aim"):
+				mouse_motion *= aim_multiplier
+				
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
