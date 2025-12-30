@@ -326,3 +326,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 3.1666667, -26)
 
 [node name="Ammo" parent="." instance=ExtResource("4_bpqh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
+
+[node name="Ammo2" parent="." instance=ExtResource("4_bpqh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -3)
+
+[node name="Ammo3" parent="." instance=ExtResource("4_bpqh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -3)
+
+[node name="Ammo4" parent="." instance=ExtResource("4_bpqh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -10)
