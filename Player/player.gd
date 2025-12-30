@@ -37,11 +37,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("aim"):
-		smooth_camera.fov = smooth_camera_fov * aim_multiplier
-		weapon_camera.fov = weapon_camera_fov * aim_multiplier
+		smooth_camera.fov = lerp(smooth_camera.fov, smooth_camera_fov * aim_multiplier, delta * 20.0)
+		weapon_camera.fov = lerp(weapon_camera.fov, weapon_camera_fov * aim_multiplier, delta * 20.0)
 	else:
-		smooth_camera.fov = smooth_camera_fov
-		weapon_camera.fov = weapon_camera_fov
+		smooth_camera.fov = lerp(smooth_camera.fov, smooth_camera_fov, delta * 30.0)
+		weapon_camera.fov = lerp(weapon_camera.fov, weapon_camera_fov, delta * 30.0)
 
 func _physics_process(delta: float) -> void:
 	handle_camera_rotation()
@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if Input.is_action_pressed("aim"):
+			velocity.x *= aim_multiplier
+			velocity.z *= aim_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
