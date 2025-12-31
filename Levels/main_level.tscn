@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://155jmh1itaq2"]
+[gd_scene load_steps=21 format=3 uid="uid://155jmh1itaq2"]
 
 [ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_8xii8"]
 [ext_resource type="Texture2D" uid="uid://p6g44s7h7peh" path="res://Levels/level-floorplan.png" id="2_k0okc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csl8oala6e5db" path="res://Hazards/lava.tscn" id="7_wcg7u"]
 [ext_resource type="PackedScene" uid="uid://c7w7sijeu7cio" path="res://Assets/Props/Floor.glb" id="8_2clls"]
 [ext_resource type="PackedScene" uid="uid://rxg24tt00gc0" path="res://Assets/Props/FloorTile.glb" id="9_3d006"]
+[ext_resource type="PackedScene" uid="uid://bgv2vr6vmwq83" path="res://Assets/Props/Cap.glb" id="10_5aiwm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xii8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -317,107 +318,129 @@ shape = SubResource("ConvexPolygonShape3D_3d006")
 
 [node name="Decoration" type="Node3D" parent="."]
 
-[node name="Floor2" parent="Decoration" instance=ExtResource("8_2clls")]
+[node name="Flooring" type="Node3D" parent="Decoration"]
+
+[node name="Floor2" parent="Decoration/Flooring" instance=ExtResource("8_2clls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.06271526, 12.8)
 
-[node name="Floor3" parent="Decoration" instance=ExtResource("8_2clls")]
+[node name="Floor3" parent="Decoration/Flooring" instance=ExtResource("8_2clls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.800001, 0.06271526, 12.8)
 
-[node name="Floor4" parent="Decoration" instance=ExtResource("8_2clls")]
+[node name="Floor4" parent="Decoration/Flooring" instance=ExtResource("8_2clls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.199999, 3.0627153, -11.2)
 
-[node name="FloorTile" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, -2, 0, 13)
 
-[node name="FloorTile2" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile2" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.17364824, 0, -0.9848077, 0, 1, 0, 0.9848077, 0, 0.17364824, -4.2, 0, 13)
 
-[node name="FloorTile3" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile3" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -6.4000006, 0, 13)
 
-[node name="FloorTile4" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile4" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -8.400001, 0, 13)
 
-[node name="FloorTile5" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile5" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9659257, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.9659257, -10.400001, 0, 10)
 
-[node name="FloorTile6" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile6" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.70710665, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.70710665, -10.8, 0, 13)
 
-[node name="FloorTile7" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile7" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9961946, 0, -0.08715572, 0, 1, 0, 0.08715572, 0, 0.9961946, -10.3, 0, 17.300001)
 
-[node name="FloorTile8" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile8" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -13.5, 0, 17.6)
 
-[node name="FloorTile9" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile9" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -16.5, 0, 17.6)
 
-[node name="FloorTile10" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile10" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.81915194, 0, -0.5735764, 0, 1, 0, 0.5735764, 0, 0.81915194, -20.5, 0, 17.6)
 
-[node name="FloorTile11" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile11" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9396925, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396925, -20.5, 0, 9.6)
 
-[node name="FloorTile12" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile12" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(-0.08715573, 0, 0.9961946, 0, 1, 0, -0.9961946, 0, -0.08715573, -20.5, 0, 12.6)
 
-[node name="FloorTile13" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile13" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -25.7, 0, 17.6)
 
-[node name="FloorTile14" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile14" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -25.7, 0, 10.2)
 
-[node name="FloorTile15" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile15" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -25.7, 0, 6.2)
 
-[node name="FloorTile16" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile16" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -25.7, 0, 2.9278708)
 
-[node name="FloorTile17" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile17" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -31.1, 0, -7.721839)
 
-[node name="FloorTile18" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile18" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.17364821, 0, -0.9848076, 0, 1, 0, 0.9848076, 0, 0.17364821, -25.7, 0, -1.3218387)
 
-[node name="FloorTile19" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile19" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.90630764, 0, 0.4226182, 0, 1, 0, -0.4226182, 0, 0.90630764, -30.2, 0.5, -2.4218388)
 
-[node name="FloorTile20" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile20" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -21.5, 3, -8.221839)
 
-[node name="FloorTile21" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile21" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9848076, 0, 0.17364816, 0, 1, 0, -0.17364816, 0, 0.9848076, -21.5, 3, -4.721839)
 
-[node name="FloorTile22" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile22" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9961946, 0, -0.08715573, 0, 1, 0, 0.08715573, 0, 0.9961946, -21.5, 3, -1.721839)
 
-[node name="FloorTile23" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile23" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9396925, 0, -0.3420201, 0, 1, 0, 0.3420201, 0, 0.9396925, -16.5, 3, -4.721839)
 
-[node name="FloorTile24" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile24" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9659257, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.9659257, -13.3, 3, -4.721839)
 
-[node name="FloorTile25" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile25" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9659257, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.9659257, -10.3, 3, -17.72184)
 
-[node name="FloorTile26" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile26" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9659257, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.9659257, 13.7, 3, -17.72184)
 
-[node name="FloorTile27" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile27" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9848076, 0, -0.17364816, 0, 1, 0, 0.17364816, 0, 0.9848076, 13.7, 3, -0.7218399)
 
-[node name="FloorTile28" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile28" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9659257, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.9659257, -10.3, 3, -0.7218399)
 
-[node name="FloorTile29" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile29" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -7.3, 3, 2.6781602)
 
-[node name="FloorTile30" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile30" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -7.3, 3, 5.67816)
 
-[node name="FloorTile31" parent="Decoration" instance=ExtResource("9_3d006")]
+[node name="FloorTile31" parent="Decoration/Flooring" instance=ExtResource("9_3d006")]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, -7.3, 3, 5.67816)
+
+[node name="Ceiling" type="Node3D" parent="Decoration"]
+
+[node name="Cap" parent="Decoration/Ceiling" instance=ExtResource("10_5aiwm")]
+transform = Transform3D(-1.09278474e-07, 2.5, 0, -2.5, -1.09278474e-07, 0, 0, 0, 2.5, 3.8, 3.3, 13.1)
+
+[node name="Cap2" parent="Decoration/Ceiling" instance=ExtResource("10_5aiwm")]
+transform = Transform3D(-1.09278474e-07, 2.5, 0, -2.5, -1.09278474e-07, 0, 0, 0, 2.5, -15.2, 6.3, 13.1)
+
+[node name="Cap4" parent="Decoration/Ceiling" instance=ExtResource("10_5aiwm")]
+transform = Transform3D(-1.09278474e-07, 2.5, 0, -2.5, -1.09278474e-07, 0, 0, 0, 2.5, -26, 6.3, -4.8999996)
+
+[node name="Cap5" parent="Decoration/Ceiling" instance=ExtResource("10_5aiwm")]
+transform = Transform3D(-1.09278474e-07, 2.5, 0, -2.5, -1.09278474e-07, 0, 0, 0, 2.5, -1, 6.3, -10.9)
+
+[node name="Cap3" parent="Decoration/Ceiling" instance=ExtResource("10_5aiwm")]
+transform = Transform3D(-1.09278474e-07, 2.5, 0, -2.5, -1.09278474e-07, 0, 0, 0, 2.5, 27.4, 6.3, -11)
+
+[node name="Cap6" parent="Decoration/Ceiling" instance=ExtResource("10_5aiwm")]
+transform = Transform3D(-1.09278474e-07, 2.5, 0, -2.5, -1.09278474e-07, 0, 0, 0, 2.5, 27.4, 6.3, 9)
 
 [editable path="LavaPools/Lava"]
 [editable path="LavaPools/Lava2"]
