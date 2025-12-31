@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://155jmh1itaq2"]
+[gd_scene load_steps=18 format=3 uid="uid://155jmh1itaq2"]
 
 [ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_8xii8"]
 [ext_resource type="Texture2D" uid="uid://p6g44s7h7peh" path="res://Levels/level-floorplan.png" id="2_k0okc"]
@@ -33,6 +33,20 @@ size = Vector2(21, 15)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wcg7u"]
 points = PackedVector3Array(-10.5, 0, -7.5, -10.5, 0, 7.499999, 10.497946, 0, -7.5, 10.497946, 0, 7.499999)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wcg7u"]
+resource_local_to_scene = true
+size = Vector2(10, 4)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2clls"]
+points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3d006"]
+resource_local_to_scene = true
+size = Vector2(5, 3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3d006"]
+points = PackedVector3Array(-2.5, 0, -1.5, -2.5, 0, 1.5, 2.5, 0, -1.5, 2.5, 0, 1.5)
 
 [node name="MainLevel" type="Node3D"]
 
@@ -161,7 +175,7 @@ operation = 2
 size = Vector3(10, 3, 17)
 
 [node name="Room" type="CSGBox3D" parent="NavigationRegion3D/LevelContents"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9984024, 1.5109215, 12.9477215)
 material_override = ExtResource("1_8xii8")
 use_collision = true
 flip_faces = true
@@ -272,4 +286,33 @@ shape = SubResource("ConvexPolygonShape3D_wcg7u")
 [node name="OmniLight3D" parent="LavaPools/Lava" index="2"]
 omni_range = 25.0
 
+[node name="Lava2" parent="LavaPools" instance=ExtResource("7_wcg7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.119642, -0.10381079, 7.9789968)
+
+[node name="MeshInstance3D" parent="LavaPools/Lava2" index="0"]
+mesh = SubResource("PlaneMesh_wcg7u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava2"]
+shape = SubResource("ConvexPolygonShape3D_2clls")
+
+[node name="OmniLight3D" parent="LavaPools/Lava2" index="2"]
+omni_range = 25.0
+
+[node name="Lava3" parent="LavaPools" instance=ExtResource("7_wcg7u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.727364, 0, -1.8598604)
+
+[node name="MeshInstance3D" parent="LavaPools/Lava3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23384666, -0.06738293, -2.8047972)
+mesh = SubResource("PlaneMesh_3d006")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LavaPools/Lava3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23384666, -0.06738293, -2.8047972)
+shape = SubResource("ConvexPolygonShape3D_3d006")
+
+[node name="OmniLight3D" parent="LavaPools/Lava3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73320055, -2.9168754)
+omni_range = 10.0
+
 [editable path="LavaPools/Lava"]
+[editable path="LavaPools/Lava2"]
+[editable path="LavaPools/Lava3"]
