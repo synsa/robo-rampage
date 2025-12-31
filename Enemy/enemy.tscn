@@ -1,9 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://owwbenpgxf07"]
+[gd_scene load_steps=14 format=3 uid="uid://owwbenpgxf07"]
 
 [ext_resource type="Script" uid="uid://di0og3ra3cgxc" path="res://Enemy/enemy.gd" id="1_2pb1h"]
 [ext_resource type="PackedScene" uid="uid://h4wla2p5oy1v" path="res://Enemy/Drone.glb" id="2_px1sc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2pb1h"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_px1sc"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_am0pq"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eqilm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ncf7h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m6jha"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_glvfu"]
+states/Attack/node = SubResource("AnimationNodeAnimation_px1sc")
+states/Attack/position = Vector2(522.2, 98.40544)
+states/Start/position = Vector2(202.4, 100.5568)
+states/idle/node = SubResource("AnimationNodeAnimation_am0pq")
+states/idle/position = Vector2(367, 99.496)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_eqilm"), "idle", "Attack", SubResource("AnimationNodeStateMachineTransition_ncf7h"), "Attack", "idle", SubResource("AnimationNodeStateMachineTransition_m6jha")]
+graph_offset = Vector2(-497, -129)
 
 [sub_resource type="Animation" id="Animation_2pb1h"]
 resource_name = "Attack"
@@ -105,6 +129,10 @@ shape = SubResource("CapsuleShape3D_2pb1h")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_glvfu")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
