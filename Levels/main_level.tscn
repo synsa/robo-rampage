@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://155jmh1itaq2"]
+[gd_scene load_steps=22 format=3 uid="uid://155jmh1itaq2"]
 
 [ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_8xii8"]
 [ext_resource type="Texture2D" uid="uid://p6g44s7h7peh" path="res://Levels/level-floorplan.png" id="2_k0okc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://owwbenpgxf07" path="res://Enemy/enemy.tscn" id="4_13urm"]
 [ext_resource type="PackedScene" uid="uid://bj8xrivj2rlyr" path="res://Pickups/bullet_pickup.tscn" id="5_k6a8t"]
 [ext_resource type="PackedScene" uid="uid://dh2e6piplwlay" path="res://Pickups/small_bullet_pickup.tscn" id="6_wcg7u"]
+[ext_resource type="PackedScene" uid="uid://t75xydw4t6sh" path="res://Assets/Props/Support.glb" id="7_nfesq"]
 [ext_resource type="PackedScene" uid="uid://csl8oala6e5db" path="res://Hazards/lava.tscn" id="7_wcg7u"]
 [ext_resource type="PackedScene" uid="uid://c7w7sijeu7cio" path="res://Assets/Props/Floor.glb" id="8_2clls"]
 [ext_resource type="PackedScene" uid="uid://rxg24tt00gc0" path="res://Assets/Props/FloorTile.glb" id="9_3d006"]
@@ -272,6 +273,74 @@ material_override = ExtResource("1_8xii8")
 use_collision = true
 polygon = PackedVector2Array(0, 0, 6, 3, 6, 0)
 depth = 4.0
+
+[node name="CornerDecorations" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Support" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 1.6060287, 18.9)
+
+[node name="Support2" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 1.6060287, 6.9999995)
+
+[node name="Support3" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9000003, 1.6060287, 6.9999995)
+
+[node name="Support4" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9000003, 1.6060287, 18.9)
+
+[node name="Support5" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1, 1.6060287, 18.9)
+
+[node name="Support6" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1, 4.5060287, 18.9)
+
+[node name="Support7" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9, 4.5060287, 18.9)
+
+[node name="Support8" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9, 4.5060287, 3.0999997)
+
+[node name="Support9" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8, 4.5060287, -18.9)
+
+[node name="Support10" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 4.5060287, -18.9)
+
+[node name="Support11" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 4.5060287, 0.90000105)
+
+[node name="Support12" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.100002, 4.5060287, -0.09999895)
+
+[node name="Support13" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.900002, 4.5060287, -0.09999895)
+
+[node name="Support14" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.900002, 1.6060288, -0.09999895)
+
+[node name="Support15" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.900002, 1.6060288, -9.999998)
+
+[node name="Support16" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.900002, 4.5060287, -9.999998)
+
+[node name="Support17" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 4.5060287, -15.9)
+
+[node name="Support18" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.199999, 4.5060287, -15.9)
+
+[node name="Support19" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.199999, 4.5060287, 14.8)
+
+[node name="Support20" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.199999, 1.6060288, 14.8)
+
+[node name="Support21" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.899998, 1.6060288, 14.8)
+
+[node name="Support22" parent="NavigationRegion3D/CornerDecorations" instance=ExtResource("7_nfesq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.899998, 4.5255527, 14.8)
 
 [node name="LavaPools" type="Node3D" parent="."]
 
