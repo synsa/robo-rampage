@@ -474,16 +474,16 @@ transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4
 transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, -28.324202, 4.877496, -0.2467928)
 
 [node name="Pipes15" parent="NavigationRegion3D/WallDecorations" instance=ExtResource("8_oi8lg")]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, -15.124202, 4.777496, -2.2467928)
+transform = Transform3D(0.04972137, 4.1483933e-08, -0.99876314, 0.99876314, -4.5830713e-08, 0.04972137, -4.371139e-08, -1, -4.371139e-08, -15.124202, 4.777496, -2.2467928)
 
 [node name="Pipes16" parent="NavigationRegion3D/WallDecorations" instance=ExtResource("8_oi8lg")]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4.371139e-08, -1, -4.371139e-08, -15.124202, 3.7774959, -2.2467928)
+transform = Transform3D(-0.062616326, 4.6362658e-08, -0.9980377, 0.9980377, -4.0888565e-08, -0.062616326, -4.371139e-08, -1, -4.371139e-08, -15.124202, 3.7774959, -2.2467928)
 
 [node name="Pipes17" parent="NavigationRegion3D/WallDecorations" instance=ExtResource("8_oi8lg")]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -15.124202, 4.777496, -6.6467924)
+transform = Transform3D(-0.03093975, 4.504288e-08, 0.99952126, 0.99952126, -4.2338044e-08, 0.03093975, 4.371139e-08, 1, -4.371139e-08, -15.124202, 4.777496, -6.6467924)
 
 [node name="Pipes18" parent="NavigationRegion3D/WallDecorations" instance=ExtResource("8_oi8lg")]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -15.124202, 3.7774959, -6.6467924)
+transform = Transform3D(-0.04939017, 4.5816954e-08, 0.99877954, 0.99877954, -4.1499128e-08, 0.04939017, 4.371139e-08, 1, -4.371139e-08, -15.124202, 3.7774959, -6.6467924)
 
 [node name="Vent29" parent="NavigationRegion3D/WallDecorations" instance=ExtResource("9_utf87")]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, -12.066672, 4.5266385, -1.0161797)
