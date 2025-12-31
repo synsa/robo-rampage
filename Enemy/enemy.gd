@@ -2,7 +2,7 @@ class_name Enemy
 
 extends CharacterBody3D
 
-const SPEED = 5.0
+const speed = 5.0
 const JUMP_VELOCITY = 4.5
 
 @export var attack_range := 1.5
@@ -49,11 +49,11 @@ func _physics_process(delta: float) -> void:
 
 	if direction:
 		look_at_target(direction)
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
 		
 	move_and_slide()
 	

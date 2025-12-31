@@ -220,17 +220,16 @@ use_collision = true
 polygon = PackedVector2Array(0, 0, 6, 3, 6, 0)
 depth = 4.0
 
+[node name="Slope3" type="CSGPolygon3D" parent="NavigationRegion3D/LevelContents"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32, 0, 6)
+material_override = ExtResource("1_8xii8")
+use_collision = true
+polygon = PackedVector2Array(0, 0, 8, 3, 8, 0)
+depth = 10.0
+
 [node name="Slope2" type="CSGPolygon3D" parent="NavigationRegion3D/LevelContents"]
 transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -30, 0.05, -6)
 material_override = ExtResource("1_8xii8")
 use_collision = true
 polygon = PackedVector2Array(0, 0, 6, 3, 6, 0)
 depth = 4.0
-
-[node name="Slope3" type="CSGPolygon3D" parent="NavigationRegion3D/LevelContents"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32.100002, 0.05, 6)
-material_override = ExtResource("1_8xii8")
-use_collision = true
-polygon = PackedVector2Array(0, 0, 8, 3, 8, 0)
-depth = 10.0
-smooth_faces = true
