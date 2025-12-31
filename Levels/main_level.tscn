@@ -53,6 +53,17 @@ operation = 2
 flip_faces = true
 size = Vector3(9, 3, 11)
 
+[node name="Overhang3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 1.5, -9)
+material_override = ExtResource("1_8xii8")
+size = Vector3(27, 3, 20)
+
+[node name="Overhang4" type="CSGBox3D" parent="Overhang3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+material_override = ExtResource("1_8xii8")
+operation = 2
+size = Vector3(20, 3, 14)
+
 [node name="Room" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, 13)
 material_override = ExtResource("1_8xii8")
