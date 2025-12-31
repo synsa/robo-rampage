@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://155jmh1itaq2"]
+[gd_scene load_steps=8 format=3 uid="uid://155jmh1itaq2"]
 
 [ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_8xii8"]
 [ext_resource type="Texture2D" uid="uid://p6g44s7h7peh" path="res://Levels/level-floorplan.png" id="2_k0okc"]
 [ext_resource type="PackedScene" uid="uid://d3sfpyco78b75" path="res://Player/player.tscn" id="3_6x3q2"]
+[ext_resource type="PackedScene" uid="uid://owwbenpgxf07" path="res://Enemy/enemy.tscn" id="4_13urm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xii8"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -174,3 +175,41 @@ smooth_faces = true
 
 [node name="Player" parent="." instance=ExtResource("3_6x3q2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 14)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 1, 10)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -30, 4, 17)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1, 1)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, -9)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, -11, 4, 0)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 4, -18)
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -8, 4, -18)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 13, 4, -18)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 13, 4, -2)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 1, 1, -9)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 26, 4, -13)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("4_13urm")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 26, 4, -9)
