@@ -29,7 +29,7 @@ sky_material = SubResource("ProceduralSkyMaterial_8xii8")
 [sub_resource type="Environment" id="Environment_6x3q2"]
 background_mode = 2
 sky = SubResource("Sky_k0okc")
-tonemap_mode = 2
+tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_k6a8t"]
