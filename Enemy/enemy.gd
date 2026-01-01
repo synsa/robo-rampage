@@ -17,7 +17,6 @@ var aggro_range := 12.0
 var hitpoints: int = max_hitpoints:
 	set(value):
 		hitpoints = value
-		print(hitpoints)
 		if hitpoints <= 0:
 			queue_free()
 		provoked = true
@@ -63,5 +62,4 @@ func look_at_target(direction: Vector3) -> void:
 
 
 func attack() -> void:
-	print("enemy attack!")
 	player.hitpoints -= attack_damage
