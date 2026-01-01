@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://155jmh1itaq2"]
+[gd_scene load_steps=27 format=3 uid="uid://155jmh1itaq2"]
 
 [ext_resource type="Material" uid="uid://cov6xfry7kfm1" path="res://Levels/Materials/GrayMaterial.tres" id="1_8xii8"]
 [ext_resource type="Texture2D" uid="uid://p6g44s7h7peh" path="res://Levels/level-floorplan.png" id="2_k0okc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bj8xrivj2rlyr" path="res://Pickups/bullet_pickup.tscn" id="5_k6a8t"]
 [ext_resource type="PackedScene" uid="uid://dh2e6piplwlay" path="res://Pickups/small_bullet_pickup.tscn" id="6_wcg7u"]
 [ext_resource type="PackedScene" uid="uid://t75xydw4t6sh" path="res://Assets/Props/Support.glb" id="7_nfesq"]
+[ext_resource type="PackedScene" uid="uid://b3rd063m8q458" path="res://Assets/Props/Screen.glb" id="7_vn64n"]
 [ext_resource type="PackedScene" uid="uid://csl8oala6e5db" path="res://Hazards/lava.tscn" id="7_wcg7u"]
 [ext_resource type="PackedScene" uid="uid://c7w7sijeu7cio" path="res://Assets/Props/Floor.glb" id="8_2clls"]
 [ext_resource type="PackedScene" uid="uid://dtq2ogfp1j0v7" path="res://Assets/Props/Pipes.glb" id="8_oi8lg"]
@@ -277,6 +278,56 @@ material_override = ExtResource("1_8xii8")
 use_collision = true
 polygon = PackedVector2Array(0, 0, 6, 3, 6, 0)
 depth = 4.0
+
+[node name="GameObjects" type="Node3D" parent="NavigationRegion3D/LevelContents"]
+
+[node name="Screen" parent="NavigationRegion3D/LevelContents/GameObjects" instance=ExtResource("7_vn64n")]
+transform = Transform3D(1.5320889, 0, -1.2855753, 0, 2, 0, 1.2855753, 0, 1.5320889, -0.5, 1.4, 8.099999)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/LevelContents/GameObjects/Screen"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.010708988, 0)
+light_color = Color(0.5686275, 0.9098039, 0.95686275, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.5
+
+[node name="Screen2" parent="NavigationRegion3D/LevelContents/GameObjects" instance=ExtResource("7_vn64n")]
+transform = Transform3D(1.9999999, 0, -5.9604645e-08, 0, 2, 0, 5.9604645e-08, 0, 1.9999999, -26.4, 1.4, 17.3)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/LevelContents/GameObjects/Screen2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.010708988, 0)
+light_color = Color(0.5686275, 0.9098039, 0.95686275, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.5
+
+[node name="Screen3" parent="NavigationRegion3D/LevelContents/GameObjects" instance=ExtResource("7_vn64n")]
+transform = Transform3D(1.4142131, 0, -1.4142133, 0, 2, 0, 1.4142133, 0, 1.4142131, -29.900002, 4.4, 4.1999993)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/LevelContents/GameObjects/Screen3"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.010708988, 0)
+light_color = Color(0.5686275, 0.9098039, 0.95686275, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.5
+
+[node name="Screen4" parent="NavigationRegion3D/LevelContents/GameObjects" instance=ExtResource("7_vn64n")]
+transform = Transform3D(-2.3841858e-07, 0, -1.9999994, 0, 2, 0, 1.9999994, 0, -2.3841858e-07, 27.099998, 4.4, -15.500001)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/LevelContents/GameObjects/Screen4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.010708988, 0)
+light_color = Color(0.5686275, 0.9098039, 0.95686275, 1)
+light_energy = 2.0
+light_specular = 0.75
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.5
 
 [node name="CornerDecorations" type="Node3D" parent="NavigationRegion3D"]
 
@@ -779,18 +830,6 @@ omni_attenuation = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.341137, 5.5093627, -4.7656565)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.439291, 0)
-light_color = Color(0.5686275, 0.9098039, 0.95686275, 1)
-light_energy = 2.0
-light_specular = 0.75
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 0.25
-
-[node name="Light10" parent="Decoration/Ceiling" instance=ExtResource("14_utf87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.658863, 6.0093627, -14.565657)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Decoration/Ceiling/Light10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.439291, 0)
 light_color = Color(0.5686275, 0.9098039, 0.95686275, 1)
 light_energy = 2.0
